@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Comparativo Policode</title>
+  <style>
+    :root { color-scheme: light; font-family: system-ui, sans-serif; color: #172033; background: #f3f6fb; }
+    body { margin: 0 auto; max-width: 1150px; padding: 2rem; }
+    h1 { margin-bottom: .3rem; } .note { color: #44516a; }
+    .controls { display: flex; flex-wrap: wrap; gap: .75rem; margin: 1.25rem 0; }
+    select, button { border: 1px solid #aeb9ca; border-radius: .4rem; background: white; padding: .6rem; }
+    .table-wrap { overflow-x: auto; background: white; border-radius: .65rem; box-shadow: 0 2px 12px #20305012; }
+    table { border-collapse: collapse; width: 100%; min-width: 950px; }
+    th, td { padding: .8rem; border-bottom: 1px solid #e4e9f1; text-align: left; vertical-align: top; }
+    th { background: #eaf0fa; position: sticky; top: 0; }
+    th button { font: inherit; border: 0; padding: 0; background: transparent; font-weight: 700; cursor: pointer; }
+    .pending { color: #795800; font-weight: 600; }
+    footer { margin-top: 1rem; font-size: .9rem; }
+  </style>
+</head>
+<body>
+  <h1>Comparativo de implementaciones</h1>
+  <p class="note">Gestión de pedidos: mismo conjunto de datos y reglas para Python, Java y Node.js. Las mediciones no se inventan; complete los campos pendientes tras ejecutar cada implementación en el mismo equipo.</p>
+  <div class="controls">
+    <label>Filtrar lenguaje:
+      <select id="language">
+        <option value="">Todos</option><option>Python</option><option>Java</option><option>JavaScript</option>
+      </select>
+    </label>
+    <button id="reset" type="button">Restablecer orden</button>
+  </div>
+  <div class="table-wrap">
+    <table id="comparison">
+      <thead><tr>
+        <th><button data-sort="0">Lenguaje</button></th>
+        <th><button data-sort="1">Resultados / pruebas</button></th>
+        <th><button data-sort="2">Tiempos por volumen</button></th>
+        <th><button data-sort="3">Secuencial vs. concurrente</button></th>
+        <th><button data-sort="4">Líneas aprox.</button></th>
+        <th><button data-sort="5">Dificultad</button></th>
+        <th>Ventajas y limitaciones principales</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>Python</td><td>8/8 pruebas aprobadas; las tres salidas JSON equivalen en ambos modos. Ventas small/medium/large: $1,756.60 / $10,433.20 / $29,015.40.</td><td class="pending">Pendiente de cronometrar; 3 / 10 / 20 pedidos.</td><td class="pending">Pendiente de medir en mismo equipo y carga.</td><td>≈334 líneas fuente (sin pruebas)</td><td>Media (estimación cualitativa)</td><td>Conciso, JSON estándar; paralelismo CPU limitado por GIL.</td></tr>
+        <tr><td>Java</td><td>7/7 pruebas aprobadas; las tres salidas JSON equivalen en ambos modos. Ventas small/medium/large: $1,756.60 / $10,433.20 / $29,015.40.</td><td class="pending">Pendiente de cronometrar; 3 / 10 / 20 pedidos.</td><td class="pending">Pendiente de medir en mismo equipo y carga.</td><td>≈550 líneas fuente (archivo único)</td><td>Media-alta (estimación cualitativa)</td><td>Tipos estáticos y ejecutor de hilos; lector JSON básico autocontenido.</td></tr>
+        <tr><td>JavaScript</td><td>7/7 pruebas aprobadas; las tres salidas JSON equivalen en ambos modos. Ventas small/medium/large: $1,756.60 / $10,433.20 / $29,015.40.</td><td class="pending">Pendiente de cronometrar; 3 / 10 / 20 pedidos.</td><td class="pending">Pendiente de medir en mismo equipo y carga.</td><td>≈275 líneas fuente (sin pruebas)</td><td>Media (estimación cualitativa)</td><td>I/O asíncrona y promesas; la concurrencia async no acelera cálculo intensivo.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <footer>
+    Volúmenes confirmados en los JSON: 3, 10 y 20 pedidos. Las pruebas pasan en las tres versiones y los resultados de todas las ejecuciones coinciden. El resumen contiene cantidad, subtotal, descuentos, impuestos, envío, ventas, conteos por estado/prioridad y procesamiento. Para mediciones de tiempo, registre versiones de runtimes, equipo, comando, tiempo de pared y repeticiones; compare mediana y la misma cantidad de workers.
+  </footer>
+  <script>
+    const table = document.querySelector('#comparison tbody');
+    const originalRows = [...table.rows].map((row) => row.cloneNode(true));
+    document.querySelector('#language').addEventListener('change', (event) => {
+      [...table.rows].forEach((row) => {
+        row.hidden = Boolean(event.target.value) && row.cells[0].textContent !== event.target.value;
+      });
+    });
+    document.querySelectorAll('[data-sort]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const index = Number(button.dataset.sort);
+        const rows = [...table.rows];
+        rows.sort((a, b) => a.cells[index].textContent.localeCompare(b.cells[index].textContent, 'es'));
+        rows.forEach((row) => table.append(row));
+      });
+    });
+    document.querySelector('#reset').addEventListener('click', () => {
+      table.replaceChildren(...originalRows.map((row) => row.cloneNode(true)));
+      document.querySelector('#language').value = '';
+    });
+  </script>
+</body>
+</html>

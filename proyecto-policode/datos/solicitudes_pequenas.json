@@ -1,0 +1,36 @@
+[
+  {
+    "id": "P-1001",
+    "cliente": {"nombre": "Ana Ruiz", "tipo": "regular"},
+    "productos": [
+      {"codigo": "LIB-01", "nombre": "Cuaderno", "precio": 45.50, "cantidad": 2},
+      {"codigo": "PLU-02", "nombre": "Bolígrafo", "precio": 12.00, "cantidad": 3}
+    ],
+    "tipo_envio": "estandar",
+    "metodo_pago": "tarjeta_simulada",
+    "estado": "Recibido",
+    "fecha_creacion": "2026-10-10T09:00:00"
+  },
+  {
+    "id": "P-1002",
+    "cliente": {"nombre": "Luis Mora", "tipo": "vip"},
+    "productos": [
+      {"codigo": "AUD-10", "nombre": "Audífonos", "precio": 620.00, "cantidad": 1}
+    ],
+    "tipo_envio": "express",
+    "metodo_pago": "efectivo_simulado",
+    "estado": "En preparación",
+    "fecha_creacion": "2026-10-11T11:30:00"
+  },
+  {
+    "id": "P-1003",
+    "cliente": {"nombre": "Eva Solís", "tipo": "regular"},
+    "productos": [
+      {"codigo": "MOU-04", "nombre": "Mouse", "precio": 350.00, "cantidad": 2}
+    ],
+    "tipo_envio": "retiro",
+    "metodo_pago": "transferencia_simulada",
+    "estado": "Enviado",
+    "fecha_creacion": "2026-10-12T14:15:00"
+  }
+]

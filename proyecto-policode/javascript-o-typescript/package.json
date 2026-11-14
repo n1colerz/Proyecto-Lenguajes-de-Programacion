@@ -1,0 +1,14 @@
+{
+  "name": "proyecto-policode-js",
+  "version": "1.0.0",
+  "description": "Gestión de pedidos para una tienda",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "jest --runInBand"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^30.0.0"
+  }
+}

@@ -1,0 +1,52 @@
+[
+  {
+    "id": "M-2001", "cliente": {"nombre": "Ana Ruiz", "tipo": "regular"},
+    "productos": [{"codigo": "LIB-01", "nombre": "Cuaderno", "precio": 45.50, "cantidad": 2}],
+    "tipo_envio": "estandar", "metodo_pago": "tarjeta_simulada", "estado": "Recibido", "fecha_creacion": "2026-10-01T09:00:00"
+  },
+  {
+    "id": "M-2002", "cliente": {"nombre": "Luis Mora", "tipo": "vip"},
+    "productos": [{"codigo": "AUD-10", "nombre": "Audífonos", "precio": 620.00, "cantidad": 2}],
+    "tipo_envio": "express", "metodo_pago": "efectivo_simulado", "estado": "En preparación", "fecha_creacion": "2026-10-02T10:00:00"
+  },
+  {
+    "id": "M-2003", "cliente": {"nombre": "Eva Solís", "tipo": "regular"},
+    "productos": [{"codigo": "MOU-04", "nombre": "Mouse", "precio": 350.00, "cantidad": 1}],
+    "tipo_envio": "retiro", "metodo_pago": "transferencia_simulada", "estado": "Enviado", "fecha_creacion": "2026-10-03T11:00:00"
+  },
+  {
+    "id": "M-2004", "cliente": {"nombre": "Pablo Díaz", "tipo": "regular"},
+    "productos": [{"codigo": "TEC-08", "nombre": "Teclado", "precio": 890.00, "cantidad": 1}],
+    "tipo_envio": "estandar", "metodo_pago": "tarjeta_simulada", "estado": "Entregado", "fecha_creacion": "2026-10-04T12:00:00"
+  },
+  {
+    "id": "M-2005", "cliente": {"nombre": "Sara León", "tipo": "vip"},
+    "productos": [{"codigo": "MON-15", "nombre": "Monitor", "precio": 2450.00, "cantidad": 1}],
+    "tipo_envio": "express", "metodo_pago": "tarjeta_simulada", "estado": "Recibido", "fecha_creacion": "2026-10-05T13:00:00"
+  },
+  {
+    "id": "M-2006", "cliente": {"nombre": "Tomás Rey", "tipo": "regular"},
+    "productos": [{"codigo": "USB-03", "nombre": "Memoria USB", "precio": 125.00, "cantidad": 3}],
+    "tipo_envio": "estandar", "metodo_pago": "efectivo_simulado", "estado": "Cancelado", "fecha_creacion": "2026-10-06T14:00:00"
+  },
+  {
+    "id": "M-2007", "cliente": {"nombre": "Iris Vega", "tipo": "regular"},
+    "productos": [{"codigo": "TAB-11", "nombre": "Tableta", "precio": 1800.00, "cantidad": 1}],
+    "tipo_envio": "express", "metodo_pago": "transferencia_simulada", "estado": "En preparación", "fecha_creacion": "2026-10-07T15:00:00"
+  },
+  {
+    "id": "M-2008", "cliente": {"nombre": "Nora Gil", "tipo": "vip"},
+    "productos": [{"codigo": "FUN-07", "nombre": "Funda", "precio": 260.00, "cantidad": 2}],
+    "tipo_envio": "retiro", "metodo_pago": "tarjeta_simulada", "estado": "Enviado", "fecha_creacion": "2026-10-08T16:00:00"
+  },
+  {
+    "id": "M-2009", "cliente": {"nombre": "Omar Cruz", "tipo": "regular"},
+    "productos": [{"codigo": "CAM-16", "nombre": "Cámara web", "precio": 710.00, "cantidad": 1}],
+    "tipo_envio": "estandar", "metodo_pago": "tarjeta_simulada", "estado": "Recibido", "fecha_creacion": "2026-10-09T09:30:00"
+  },
+  {
+    "id": "M-2010", "cliente": {"nombre": "Mía Torres", "tipo": "regular"},
+    "productos": [{"codigo": "ALT-05", "nombre": "Altavoz", "precio": 980.00, "cantidad": 1}],
+    "tipo_envio": "express", "metodo_pago": "efectivo_simulado", "estado": "Entregado", "fecha_creacion": "2026-10-10T10:30:00"
+  }
+]
